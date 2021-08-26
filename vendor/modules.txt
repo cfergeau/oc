@@ -65,9 +65,6 @@ github.com/alexbrainman/sspi/negotiate
 github.com/alicebob/sqlittle
 github.com/alicebob/sqlittle/db
 github.com/alicebob/sqlittle/sql
-# github.com/apcera/gssapi v0.0.0-00010101000000-000000000000 => github.com/openshift/gssapi v0.0.0-20161010215902-5fb4217df13b
-## explicit
-github.com/apcera/gssapi
 # github.com/aws/aws-sdk-go v1.35.24
 ## explicit
 github.com/aws/aws-sdk-go/aws
@@ -547,6 +544,9 @@ github.com/openshift/client-go/user/clientset/versioned/fake
 github.com/openshift/client-go/user/clientset/versioned/scheme
 github.com/openshift/client-go/user/clientset/versioned/typed/user/v1
 github.com/openshift/client-go/user/clientset/versioned/typed/user/v1/fake
+# github.com/openshift/gssapi v0.0.0-20161010215902-5fb4217df13b
+## explicit
+github.com/openshift/gssapi
 # github.com/openshift/library-go v0.0.0-20211018074344-7fcf688c505e
 ## explicit
 github.com/openshift/library-go/pkg/apps/appsserialization
@@ -1297,7 +1297,6 @@ sigs.k8s.io/structured-merge-diff/v4/value
 # sigs.k8s.io/yaml v1.2.0
 ## explicit
 sigs.k8s.io/yaml
-# github.com/apcera/gssapi => github.com/openshift/gssapi v0.0.0-20161010215902-5fb4217df13b
 # k8s.io/apimachinery => github.com/openshift/kubernetes-apimachinery v0.0.0-20210730111815-c26349f8e2c9
 # k8s.io/cli-runtime => github.com/openshift/kubernetes-cli-runtime v0.0.0-20210730111823-1570202448c3
 # k8s.io/client-go => github.com/openshift/kubernetes-client-go v0.0.0-20210826123502-7208c21f5119
