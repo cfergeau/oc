@@ -440,6 +440,7 @@ func transportWithSystemRoots(issuer string, clientConfig *restclient.Config) (h
 	resp.Body.Close()
 
 	_, err = verifyServerCertChain(issuerURL.Hostname(), resp.TLS.PeerCertificates)
+	klog.V(1).Infof("verifyServerCertChain return %T %v ", err, err)
 	switch err.(type) {
 	case nil:
 		// copy the config so we can freely mutate it
