@@ -78,6 +78,9 @@ func detectReason(err error) int {
 			return noServerFoundReason
 		case strings.Contains(err.Error(), "tls: oversized record received"):
 			return tlsOversizedRecordReason
+		// TODO: this is a temporary workaround until issue is resolved in upstream Go: https://github.com/golang/go/issues/52010
+		case strings.Contains(err.Error(), "certificate is not trusted"):
+			return certificateAuthorityUnknownReason
 		}
 		switch err.(type) {
 		case x509.UnknownAuthorityError:

@@ -467,6 +467,12 @@ func transportWithSystemRoots(issuer string, clientConfig *restclient.Config) (h
 		klog.V(4).Infof("falling back to kubeconfig CA due to possible x509 error: %v", err)
 		return restclient.TransportFor(clientConfig)
 	default:
+		// TODO: this is a temporary workaround until issue is resolved in upstream Go: https://github.com/golang/go/issues/52010
+		if strings.Contains(err.Error(), "certificate is not trusted") {
+			klog.V(4).Infof("falling back to kubeconfig CA due to possible x509 error: %v", err)
+			return restclient.TransportFor(clientConfig)
+		}
+
 		switch err {
 		case io.EOF, io.ErrUnexpectedEOF, io.ErrNoProgress:
 			// also fallback on various io errors

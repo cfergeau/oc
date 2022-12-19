@@ -95,6 +95,11 @@ func promptForInsecureTLS(reader io.Reader, out io.Writer, reason error) bool {
 			insecureTLSRequestReason = fmt.Sprintf("The server is using a certificate that does not match its hostname: %s", reason.Error())
 		case x509.CertificateInvalidError:
 			insecureTLSRequestReason = fmt.Sprintf("The server is using an invalid certificate: %s", reason.Error())
+		default:
+			// TODO: this is a temporary workaround until issue is resolved in upstream Go: https://github.com/golang/go/issues/52010
+			if strings.Contains(reason.Error(), "certificate is not trusted") {
+				insecureTLSRequestReason = "The server uses a certificate signed by an unknown authority."
+			}
 		}
 	}
 	var input bool
